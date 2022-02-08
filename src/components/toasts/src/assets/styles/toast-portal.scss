@@ -1,0 +1,39 @@
+.toasts-portal {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  pointer-events: none;
+
+  .toast-manager {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem 1rem;
+  
+    &--top-left {
+      align-items: flex-start;
+    }
+    &--top-middle {
+      align-items: center;
+    }
+    &--top-right {
+      align-items: flex-end;
+    }
+  
+    &--bottom-left {
+      align-items: flex-start;
+      flex-direction: column-reverse;
+    }
+    &--bottom-middle {
+      align-items: center;
+      flex-direction: column-reverse;
+    }
+    &--bottom-right {
+      align-items: flex-end;
+      flex-direction: column-reverse;
+    }
+  }
+}

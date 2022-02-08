@@ -1,0 +1,95 @@
+.toast {
+  pointer-events: auto;
+  margin: .5rem 0;
+  min-width: 200px;
+  max-width: 370px;
+  min-height: 72px;
+  overflow: hidden;
+  background-color: $color-white;
+  border-radius: 4px;
+  border-left-width: 8px;
+  border-left-style: solid;
+  
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  
+  h1 {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: $color-toast-title;
+  }
+
+  p {
+    font-size: 12px;
+    color: $color-toast-message;
+  }
+
+  &__icon {
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+  }
+
+  &__content {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__close {
+    cursor: pointer;
+    width: 57px;
+    min-width: 57px;
+    min-height: 100%;
+    border-left: 1px solid $color-gray-2x;
+    background-image: url('../icons/cross.svg');
+    background-size: 12px 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &:hover {
+      background-color: $color-gray-1x;
+    }
+    &:active {
+      background-color: #dff3ff;
+    }
+  }
+
+  &--default,
+  &--info {
+    border-left-color: $color-toast-info;
+    .toast__icon {
+      background-color: $color-toast-info;
+      -webkit-mask-image: url('../icons/info.svg');
+      mask-image: url('../icons/info.svg');
+    }
+  }
+  &--success {
+    border-left-color: $color-toast-success;
+    .toast__icon {
+      background-color: $color-toast-success;
+      -webkit-mask-image: url('../icons/tick.svg');
+      mask-image: url('../icons/tick.svg');
+    }
+  }
+  &--warning {
+    border-left-color: $color-toast-warning;
+    .toast__icon {
+      background-color: $color-toast-warning;
+      -webkit-mask-image: url('../icons/info.svg');
+      mask-image: url('../icons/info.svg');
+    }
+  }
+  &--error {
+    border-left-color: $color-toast-error;
+    .toast__icon {
+      background-color: $color-toast-error;
+      -webkit-mask-image: url('../icons/error.svg');
+      mask-image: url('../icons/error.svg');
+    }
+  }
+}
