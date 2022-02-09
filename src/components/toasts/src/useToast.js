@@ -1,22 +1,22 @@
+import { useCallback, useMemo } from 'react';
 import { useToastContext, setToast, delAllToasts } from './ToastContext';
 
 function useToast() {
   const [, dispatch] = useToastContext();
 
-  function show(params) {
-    if (params.duration && params.duration >= 1000)
-      params.duration = Math.round(params.duration / 1000) * 1000;
+  const show = useCallback(function(params) {
+    if (params.duration) params.duration = Math.round(params.duration / 1000) * 1000;
     setToast(dispatch, params);
-  }
+  }, [dispatch]);
 
-  function deleteAll() {
+  const deleteAll = useCallback(function() {
     delAllToasts(dispatch);
-  }
+  }, [dispatch]);
 
-  return {
+  return useMemo(() => ({
     show,
     deleteAll,
-  };
+  }), [show, deleteAll]);
 }
 
 export default useToast;

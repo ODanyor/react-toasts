@@ -18,7 +18,7 @@ function toastsReducer(state, action) {
       if (!position) position = ToastPositions[ToastPositions.length - 1]; // :'bottom-right'
       return {
         ...state,
-        [position]: [{ ...rest, id: toastsReducer.toastCounter++ }, ...state[position]],
+        [position]: [...state[position], { ...rest, id: toastsReducer.toastCounter++ }],
       };
     }
     case ToastActions.DEL: {
